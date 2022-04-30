@@ -4,6 +4,8 @@ import com.example.mybookarchives.model.Book;
 import com.example.mybookarchives.repository.BookRepository;
 import com.example.mybookarchives.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -58,6 +60,14 @@ public class BookController {
     @DeleteMapping("deleteBookByTitle/{title}")
     public void deleteBookByTitle(String title) {
         bookService.deleteBookByTitle(title);
+    }
+
+
+
+    @PostMapping(value = "/save")
+    public ResponseEntity<?> saveOrUpdateStudent(@RequestBody Book book) {
+        bookService.saveOrUpdateBook(book);
+        return new ResponseEntity("Book added successfully", HttpStatus.OK);
     }
 
 //    @DeleteMapping("/delete/{bookId}")
