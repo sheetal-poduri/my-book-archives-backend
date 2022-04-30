@@ -11,13 +11,16 @@ import java.util.List;
 public interface BookRepository extends MongoRepository<Book, String> {
 
     @Query("{title:'?0'}")
-    Book findItemByTitle(String title);
+    Book findByTitle(String title);
 
     @Query(value="{author:'?0'}", fields="{'title' : 1, 'author' : 1, 'genre' : 1, 'review': 1}")
-    List<Book> findAll(String author);
+    List<Book> findAllByAuthor(String author);
+
+    @Query(value="{}", fields="{'title' : 1, 'author' : 1, 'genre' : 1, 'review': 1}")
+    List<Book> findAll();
 
     @DeleteQuery
-    void deleteById(String id);
+    void deleteBookByTitle(String title);
 
     public long count();
 

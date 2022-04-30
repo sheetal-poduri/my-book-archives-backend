@@ -2,6 +2,8 @@ package com.example.mybookarchives.controller;
 
 import com.example.mybookarchives.model.Book;
 import com.example.mybookarchives.repository.BookRepository;
+import com.example.mybookarchives.service.BookService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,16 +19,15 @@ public class BookController {
 //    }
 
 
-    private BookRepository bookRepo;
+    @Autowired
+    private BookService bookService;
 
-    public BookController(BookRepository bookRepo) {
-        this.bookRepo = bookRepo;
-    }
+
 
     //show all books
     @GetMapping("/getAll")
     public List<Book> getAllBooks(){
-        List<Book> books = this.bookRepo.findAll();
+        List<Book> books = this.bookService.findAll();
         return books;
     }
 
@@ -34,7 +35,7 @@ public class BookController {
     @GetMapping("/getBookByTitle")
     @ResponseBody
     public Book getBookByTitle(@RequestParam String title) {
-        Book book = bookRepo.findItemByTitle(title);
+        Book book = bookService.findByTitle(title);
         return book;
     }
 
@@ -42,20 +43,21 @@ public class BookController {
     @GetMapping("/getBooksByAuthor")
     @ResponseBody
     public List<Book> getBooksByAuthor(@RequestParam String author) {
-        List<Book> books = bookRepo.findAll(author);
+        List<Book> books = bookService.findAllByAuthor(author);
         return books;
     }
 
+
     // 4. Get count of books in the collection
     @GetMapping("/count")
-    public Long findCountOfBooks() {
-        return bookRepo.count();
+    public long findCountOfBooks() {
+        return bookService.count();
     }
 
     // DELETE
-    @DeleteMapping("deleteBookById/{id}")
-    public void deleteBook(String id) {
-        bookRepo.deleteById(id);
+    @DeleteMapping("deleteBookByTitle/{title}")
+    public void deleteBookByTitle(String title) {
+        bookService.deleteBookByTitle(title);
     }
 
 //    @DeleteMapping("/delete/{bookId}")
