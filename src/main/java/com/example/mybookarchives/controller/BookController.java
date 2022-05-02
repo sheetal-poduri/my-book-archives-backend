@@ -64,10 +64,10 @@ public class BookController {
 
 
 
+
     @PostMapping(value = "/save")
-    public ResponseEntity<?> saveOrUpdateStudent(@RequestBody Book book) {
-        bookService.saveOrUpdateBook(book);
-        return new ResponseEntity("Book added successfully", HttpStatus.OK);
+    public Book saveOrUpdateStudent(@RequestBody Book book) {
+        return bookService.saveOrUpdateBook(book);
     }
 
 //    @DeleteMapping("/delete/{bookId}")
