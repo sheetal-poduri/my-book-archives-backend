@@ -63,6 +63,13 @@ public class BookController {
     }
 
 
+    @GetMapping("/getBookByTitleGoogleApi")
+    @ResponseBody
+    public Book getBookByTitleGoogleApi(@RequestParam String title) {
+        Book book = bookService.findByTitle(title);
+        return book;
+    }
+
 
 
     @PostMapping(value = "/save")
