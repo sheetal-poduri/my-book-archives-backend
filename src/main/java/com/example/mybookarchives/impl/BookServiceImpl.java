@@ -1,6 +1,7 @@
 package com.example.mybookarchives.impl;
 
 import com.example.mybookarchives.model.Book;
+import com.example.mybookarchives.model.GoogleBook;
 import com.example.mybookarchives.repository.BookRepository;
 import com.example.mybookarchives.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,22 +17,28 @@ public class BookServiceImpl implements BookService {
     private BookRepository bookRepository;
 
     @Override
-    public List<Book> findAll() {
+    public List<GoogleBook> findAll() {
         return bookRepository.findAll();
     }
 
     @Override
-    public Book findByTitle(String title) {
+    public GoogleBook findByTitle(String title) {
         return bookRepository.findByTitle(title);
     }
 
     @Override
-    public List<Book> findAllByAuthor(String author) {
+    public List<GoogleBook> findAllByAuthor(String author) {
         return bookRepository.findAllByAuthor(author);
     }
 
+//    @Override
+//    public Book saveOrUpdateBook(Book book) {
+//        return bookRepository.save(book);
+//    }
+
+
     @Override
-    public Book saveOrUpdateBook(Book book) {
+    public GoogleBook saveOrUpdateGoogleApiBook(GoogleBook book) {
         return bookRepository.save(book);
     }
 

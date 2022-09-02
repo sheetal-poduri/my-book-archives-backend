@@ -1,20 +1,23 @@
 package com.example.mybookarchives.service;
 
 import com.example.mybookarchives.model.Book;
+import com.example.mybookarchives.model.GoogleBook;
 
 import java.util.List;
 
 public interface BookService {
 
-    List<Book> findAll();
+    List<GoogleBook> findAll();
 
-    Book findByTitle(String title);
+    GoogleBook findByTitle(String title);
 
-    Book saveOrUpdateBook(Book book);
+    //Book saveOrUpdateBook(Book book);
+
+    GoogleBook saveOrUpdateGoogleApiBook(GoogleBook book);
 
     void deleteBookByTitle(String id);
 
-    List<Book> findAllByAuthor(String author);
+    List<GoogleBook> findAllByAuthor(String author);
 
     long count();
 }

@@ -25,30 +25,30 @@ public class MyBookArchivesApplication {
 	}
 
 	//CREATE
-	void createBooks() {
-		System.out.println("Data creation started...");
-		bookRepo.save(new Book("1", "Harry Potter and the Goblet of Fire", "J.K. Rowling", "Fantasy", "Magical"));
-		bookRepo.save(new Book("2", "Romeo and Juliet", "William Shakespeare", "Romance", "Cliche"));
-		bookRepo.save(new Book("3", "Eragon", "Christopher Paolini", "Fantasy", "Fantastical"));
-		bookRepo.save(new Book("4", "Throne of Glass", "Sarah J. Maas", "Fantasy", "New favorite series"));
-		bookRepo.save(new Book("5", "Harry Potter and the Sorcerer's Stone", "J.K. Rowling", "Fantasy", "Magical"));
-
-		System.out.println("Data creation complete...");
-	}
+//	void createBooks() {
+//		System.out.println("Data creation started...");
+//		bookRepo.save(new Book("1", "Harry Potter and the Goblet of Fire", "J.K. Rowling", "Fantasy", "Magical"));
+//		bookRepo.save(new Book("2", "Romeo and Juliet", "William Shakespeare", "Romance", "Cliche"));
+//		bookRepo.save(new Book("3", "Eragon", "Christopher Paolini", "Fantasy", "Fantastical"));
+//		bookRepo.save(new Book("4", "Throne of Glass", "Sarah J. Maas", "Fantasy", "New favorite series"));
+//		bookRepo.save(new Book("5", "Harry Potter and the Sorcerer's Stone", "J.K. Rowling", "Fantasy", "Magical"));
+//
+//		System.out.println("Data creation complete...");
+//	}
 
 	// Print details in readable form
 
-	public String getBookDetails(Book book) {
-
-		System.out.println(
-				"Title: " + book.getTitle() +
-						", \nAuthor: " + book.getAuthor() +
-						", \nGenre: " + book.getGenre() +
-						", \nReview: " + book.getReview()
-
-		);
-		return "";
-	}
+//	public String getBookDetails(Book book) {
+//
+//		System.out.println(
+//				"Title: " + book.getTitle() +
+//						", \nAuthor: " + book.getAuthor() +
+//						", \nGenre: " + book.getGenre() +
+//						", \nReview: " + book.getReview()
+//
+//		);
+//		return "";
+//	}
 
 
 //	@Override

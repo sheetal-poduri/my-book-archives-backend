@@ -1,11 +1,9 @@
 package com.example.mybookarchives.controller;
 
 import com.example.mybookarchives.model.Book;
-import com.example.mybookarchives.repository.BookRepository;
+import com.example.mybookarchives.model.GoogleBook;
 import com.example.mybookarchives.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,24 +26,24 @@ public class BookController {
 
     //show all books
     @GetMapping("/getAll")
-    public List<Book> getAllBooks(){
-        List<Book> books = this.bookService.findAll();
+    public List<GoogleBook> getAllBooks(){
+        List<GoogleBook> books = this.bookService.findAll();
         return books;
     }
 
     // 2. Get book by title
     @GetMapping("/getBookByTitle")
     @ResponseBody
-    public Book getBookByTitle(@RequestParam String title) {
-        Book book = bookService.findByTitle(title);
+    public GoogleBook getBookByTitle(@RequestParam String title) {
+        GoogleBook book = bookService.findByTitle(title);
         return book;
     }
 
     // 3. Get name and quantity of all books by a particular author
     @GetMapping("/getBooksByAuthor")
     @ResponseBody
-    public List<Book> getBooksByAuthor(@RequestParam String author) {
-        List<Book> books = bookService.findAllByAuthor(author);
+    public List<GoogleBook> getBooksByAuthor(@RequestParam String author) {
+        List<GoogleBook> books = bookService.findAllByAuthor(author);
         return books;
     }
 
@@ -65,16 +63,21 @@ public class BookController {
 
     @GetMapping("/getBookByTitleGoogleApi")
     @ResponseBody
-    public Book getBookByTitleGoogleApi(@RequestParam String title) {
-        Book book = bookService.findByTitle(title);
+    public GoogleBook getBookByTitleGoogleApi(@RequestParam String title) {
+        GoogleBook book = bookService.findByTitle(title);
         return book;
     }
 
 
 
-    @PostMapping(value = "/save")
-    public Book saveOrUpdateStudent(@RequestBody Book book) {
-        return bookService.saveOrUpdateBook(book);
+//    @PostMapping(value = "/save")
+//    public Book saveOrUpdateBook(@RequestBody Book book) {
+//        return bookService.saveOrUpdateBook(book);
+//    }
+
+    @PostMapping(value = "/saveGoogleApiBook")
+    public GoogleBook saveOrUpdateGoogleApiBook(@RequestBody GoogleBook book) {
+        return bookService.saveOrUpdateGoogleApiBook(book);
     }
 
 //    @DeleteMapping("/delete/{bookId}")
