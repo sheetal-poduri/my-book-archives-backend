@@ -1,7 +1,5 @@
 package com.example.mybookarchives.model;
 
-import java.lang.reflect.Array;
-
 public class GoogleBook {
 
     private Object accessInfo;
@@ -18,8 +16,10 @@ public class GoogleBook {
     private String language;
     private String publisher;
     private String title;
+    private Object volumeInfo;
+    private String publishedDate;
 
-    public GoogleBook(Object accessInfo, String etag, String id, String kind, Object saleInfo, Object searchInfo, String[] authors, String[] categories, String description, String thumbnail, String smallThumbnail, String language, String publisher, String title) {
+    public GoogleBook(Object accessInfo, String etag, String id, String kind, Object saleInfo, Object searchInfo, String[] authors, String[] categories, String description, String thumbnail, String smallThumbnail, String language, String publisher, String title, Object volumeInfo, String publishedDate) {
         super();
         this.accessInfo = accessInfo;
         this.etag = etag;
@@ -35,6 +35,8 @@ public class GoogleBook {
         this.language = language;
         this.publisher = publisher;
         this.title = title;
+        this.volumeInfo = volumeInfo;
+        this.publishedDate = publishedDate;
     }
 
 
@@ -92,5 +94,13 @@ public class GoogleBook {
 
     public String getTitle() {
         return title;
+    }
+
+    public Object getVolumeInfo() {
+        return volumeInfo;
+    }
+
+    public String getPublishedDate() {
+        return publishedDate;
     }
 }

@@ -17,7 +17,7 @@ public interface BookRepository extends MongoRepository<GoogleBook, String> {
     @Query(value="{author:'?0'}", fields="{'title' : 1, 'author' : 1, 'genre' : 1, 'review': 1}")
     List<GoogleBook> findAllByAuthor(String author);
 
-    @Query(value="{}", fields="{'id' : 1, 'accessInfo' : 1, 'etag' : 1, 'kind' : 1, 'saleInfo' : 1, 'searchInfo' : 1, 'categories' : 1, 'description' : 1, 'thumbnail' : 1, 'smallThumbnail' : 1, 'language' : 1, 'publisher' : 1, 'title' : 1, 'authors' : 1}")
+    @Query(value="{}", fields="{'id' : 1, 'accessInfo' : 1, 'etag' : 1, 'kind' : 1, 'saleInfo' : 1, 'searchInfo' : 1, 'categories' : 1, 'description' : 1, 'thumbnail' : 1, 'smallThumbnail' : 1, 'language' : 1, 'publisher' : 1, 'title' : 1, 'authors' : 1, 'volumeInfo' : 1, 'publishedDate': 1}")
     List<GoogleBook> findAll();
 
     @DeleteQuery
