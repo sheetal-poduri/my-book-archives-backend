@@ -20,7 +20,7 @@ public interface BookRepository extends MongoRepository<GoogleBook, String> {
     @Query(value="{}", fields="{'id' : 1, 'accessInfo' : 1, 'etag' : 1, 'kind' : 1, 'saleInfo' : 1, 'searchInfo' : 1, 'categories' : 1, 'description' : 1, 'thumbnail' : 1, 'smallThumbnail' : 1, 'language' : 1, 'publisher' : 1, 'title' : 1, 'authors' : 1, 'volumeInfo' : 1, 'publishedDate': 1}")
     List<GoogleBook> findAll();
 
-    @DeleteQuery
+    @Query(value="{title:'?0'}",delete = true)
     void deleteBookByTitle(String title);
 
     public long count();
