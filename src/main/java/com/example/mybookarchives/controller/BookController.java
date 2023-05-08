@@ -55,8 +55,8 @@ public class BookController {
     }
 
     // DELETE
-    @DeleteMapping("deleteBookByTitle/{title}")
-    public void deleteBookByTitle(String title) {
+    @DeleteMapping("/deleteBookByTitle")
+    public void deleteBookByTitle(@RequestParam String title) {
         bookService.deleteBookByTitle(title);
     }
 
